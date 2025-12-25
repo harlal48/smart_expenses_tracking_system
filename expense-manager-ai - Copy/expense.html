@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Expenses | Expense Manager AI</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+<!-- 🔒 AUTH PROTECTION -->
+<script>
+    if (!localStorage.getItem("loggedUser")) {
+        window.location.href = "index.html";
+    }
+</script>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <h3>Expense Manager AI</h3>
+    <div>
+        <a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a>
+        <a href="expense.html"><i class="fas fa-wallet"></i> Expenses</a>
+        <a href="ai-budget.html"><i class="fas fa-robot"></i> AI Planner</a>
+        <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        <button onclick="toggleTheme()" class="dark-btn">🌙</button>
+    </div>
+</div>
+
+<div class="container">
+
+    <!-- ➕ ADD EXPENSE -->
+    <div class="card">
+        <h2>Add Expense</h2>
+
+        <form onsubmit="return addExpense();">
+            <input type="text" id="title" placeholder="Expense Title" required>
+            <input type="number" id="amount" placeholder="Amount" required min="1">
+
+            <select id="category" required>
+                <option value="Food">Food</option>
+                <option value="Rent">Rent</option>
+                <option value="Travel">Travel</option>
+                <option value="Shopping">Shopping</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <button type="submit">Add Expense</button>
+        </form>
+    </div>
+
+    <!-- 📋 EXPENSE LIST -->
+    <div class="card">
+        <h2>Expense List</h2>
+
+        <button onclick="exportCSV()">⬇️ Export to CSV</button>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Amount (₹)</th>
+                    <th>Category</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="expenseTable">
+                <!-- Injected by JS -->
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+<!-- SCRIPTS -->
+<script src="js/expense.js"></script>
+<script src="js/theme.js"></script>
+
+<script>
+    function logout() {
+        localStorage.removeItem("loggedUser");
+        window.location.href = "index.html";
+    }
+</script>
+
+</body>
+</html>

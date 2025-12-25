@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Account | Expense Manager AI</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+<!-- 🔒 AUTH PROTECTION -->
+<script>
+    if (!localStorage.getItem("loggedUser")) {
+        window.location.href = "index.html";
+    }
+</script>
+
+<div class="navbar">
+    <h3>SMART EXPENSE TRACKING SYSTEM</h3>
+    <div>
+        <a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a>
+        <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        <button onclick="toggleTheme()" class="dark-btn">🌙</button>
+    </div>
+</div>
+
+<div class="container">
+    <div class="card">
+        <h2 style="color:red;">⚠️ Delete Account</h2>
+
+        <p>
+            This action will permanently delete your account and all associated data.
+            <br><strong>This cannot be undone.</strong>
+        </p>
+
+        <form onsubmit="return deleteAccount();">
+            <input type="password"
+                   id="confirmPassword"
+                   placeholder="Enter your password to confirm"
+                   required
+                   autocomplete="current-password">
+
+            <button type="submit" style="background:red;">
+                Delete My Account
+            </button>
+        </form>
+    </div>
+</div>
+
+<script src="js/auth.js"></script>
+<script src="js/theme.js"></script>
+
+<script>
+    function logout() {
+        localStorage.removeItem("loggedUser");
+        window.location.href = "index.html";
+    }
+</script>
+
+</body>
+</html>

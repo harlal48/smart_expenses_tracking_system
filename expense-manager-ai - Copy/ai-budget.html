@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>AI Budget Planner | Expense Manager AI</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+<!-- 🔒 AUTH PROTECTION -->
+<script>
+    if (!localStorage.getItem("loggedUser")) {
+        window.location.href = "index.html";
+    }
+</script>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <h3>Expense Manager AI</h3>
+    <div>
+        <a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a>
+        <a href="ai-budget.html"><i class="fas fa-robot"></i> AI Planner</a>
+        <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        <button onclick="toggleTheme()" class="dark-btn">🌙</button>
+    </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="container">
+    <div class="card">
+        <h2>🤖 AI Budget Planner</h2>
+
+        <form onsubmit="return generateBudget();">
+            <input type="number" id="salary" placeholder="Monthly Salary" required min="0">
+            <input type="number" id="rent" placeholder="Monthly Rent" min="0">
+            <input type="number" id="travel" placeholder="Office Travel Expense" min="0">
+            <input type="number" id="other" placeholder="Other Fixed Expenses" min="0">
+            <input type="number" id="savingGoal" placeholder="Monthly Saving Goal" min="0">
+
+            <button type="submit">Generate Smart Budget</button>
+        </form>
+
+        <div id="result"></div>
+    </div>
+</div>
+
+<!-- SCRIPTS -->
+<script src="js/ai-engine.js"></script>
+<script src="js/theme.js"></script>
+
+<script>
+    function logout() {
+        localStorage.removeItem("loggedUser");
+        window.location.href = "index.html";
+    }
+</script>
+
+</body>
+</html>

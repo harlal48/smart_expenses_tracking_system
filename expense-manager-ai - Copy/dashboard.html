@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard | Smart Expense Tracking System</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+<!-- 🔐 AUTH PROTECTION -->
+<script>
+    if (!localStorage.getItem("loggedUser")) {
+        window.location.href = "index.html";
+    }
+</script>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <h3>SMART EXPENSE TRACKING SYSTEM</h3>
+    <div>
+        <a href="dashboard.html"><i class="fas fa-chart-line"></i> Dashboard</a>
+        <a href="expense.html"><i class="fas fa-wallet"></i> Expenses</a>
+        <a href="ai-budget.html"><i class="fas fa-robot"></i> AI Planner</a>
+        <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+        <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        <button onclick="toggleTheme()" class="dark-btn">🌙</button>
+    </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="container">
+    <h2 id="welcomeText">Welcome back 👋</h2>
+
+    <!-- 🔔 SMART ALERT -->
+    <div class="card" id="alertBox" style="display:none;">
+        <h3>🔔 Smart Alert</h3>
+        <p id="alertMessage"></p>
+    </div>
+
+    <!-- 💡 AI TIP -->
+    <div class="card">
+        <h3>💡 AI Tip of the Day</h3>
+        <p id="aiTip">Loading tip...</p>
+    </div>
+
+    <!-- 📊 MONTHLY COMPARISON -->
+    <div class="card">
+        <h3>📊 Monthly Expense Comparison</h3>
+        <p>This Month: ₹<span id="thisMonthExpense">0</span></p>
+        <p>Last Month: ₹<span id="lastMonthExpense">0</span></p>
+        <strong id="monthComparisonText"></strong>
+    </div>
+
+    <!-- 💰 TOTAL EXPENSE -->
+    <div class="card">
+        <h3>Total Monthly Expense</h3>
+        <p id="totalExpense">₹ 0</p>
+    </div>
+
+    <!-- 🤖 AI STATUS -->
+    <div class="card">
+        <h3>AI Budget Status</h3>
+        <p id="aiStatus">Checking...</p>
+    </div>
+
+    <!-- ❤️ HEALTH METER -->
+    <div class="card">
+        <h3>Expense Health Meter</h3>
+        <div class="health-bar">
+            <div id="healthFill"></div>
+        </div>
+        <p id="healthText">Calculating...</p>
+    </div>
+
+    <!-- ⚠️ CATEGORY WARNINGS -->
+    <div class="card">
+        <h3>AI Category Warnings</h3>
+        <ul id="categoryWarnings">
+            <li>Analyzing expenses...</li>
+        </ul>
+    </div>
+
+    <!-- 📈 ANALYTICS CHART -->
+    <div class="card">
+        <h3>Expense Analytics (Category-wise)</h3>
+        <canvas id="expenseChart" height="200">
+            Your browser does not support charts.
+        </canvas>
+    </div>
+</div>
+
+<!-- SCRIPTS -->
+<script src="js/auth.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1"></script>
+<script src="js/dashboard.js"></script>
+<script src="js/theme.js"></script>
+
+<script>
+    function logout() {
+        localStorage.removeItem("loggedUser");
+        window.location.href = "index.html";
+    }
+
+    // Welcome username
+    const user = JSON.parse(localStorage.getItem("loggedUser"));
+    if (user && user.name) {
+        document.getElementById("welcomeText").innerText =
+            `Welcome back, ${user.name} 👋`;
+    }
+</script>
+
+</body>
+</html>
