@@ -12,7 +12,7 @@
 
 <body>
 
-<!-- 🔒 AUTH PROTECTION -->
+<!-- AUTH PROTECTION -->
 <script>
     if (!localStorage.getItem("loggedUser")) {
         window.location.href = "index.html";
@@ -33,7 +33,7 @@
 <!-- MAIN CONTENT -->
 <div class="container">
     <div class="card">
-        <h2>🤖 AI Budget Planner</h2>
+        <h2> AI Budget Planner</h2>
 
         <form onsubmit="return generateBudget();">
             <input type="number" id="salary" placeholder="Monthly Salary" required min="0">
@@ -62,3 +62,4 @@
 
 </body>
 </html>
+
