@@ -86,18 +86,18 @@ if (warningList) {
     if (aiBudget) {
         warningList.innerHTML +=
             categoryTotals.Food > (aiBudget.food || 0)
-                ? `<li>❌ Food expense too high</li>`
-                : `<li>✅ Food expense is healthy</li>`;
+                ? `<li> Food expense too high</li>`
+                : `<li> Food expense is healthy</li>`;
 
         warningList.innerHTML +=
             categoryTotals.Travel > (aiBudget.travel || 0)
-                ? `<li>❌ Travel expense too high</li>`
-                : `<li>✅ Travel expense is controlled</li>`;
+                ? `<li> Travel expense too high</li>`
+                : `<li> Travel expense is controlled</li>`;
 
         warningList.innerHTML +=
             categoryTotals.Other > (aiBudget.other || 0)
-                ? `<li>❌ Other expenses need control</li>`
-                : `<li>✅ Other expenses are fine</li>`;
+                ? `<li> Other expenses need control</li>`
+                : `<li> Other expenses are fine</li>`;
     } else {
         warningList.innerHTML =
             `<li>⚠️ Enter salary in AI Planner to get AI warnings</li>`;
@@ -145,7 +145,7 @@ if (chartEl && typeof Chart !== "undefined") {
     } else {
         alertBox.style.display = "block";
         alertMessage.innerText =
-            "✅ Good job! Your spending is under control.";
+            "✅ Good job Your spending is under control.";
         alertBox.style.borderLeft = "5px solid green";
     }
 })();
@@ -214,3 +214,4 @@ if (chartEl && typeof Chart !== "undefined") {
         comparisonText.innerText = "➖ Spending unchanged";
     }
 })();
+
