@@ -11,7 +11,7 @@
 
 <body>
 
-<!-- 🔐 AUTH PROTECTION -->
+<!-- AUTH PROTECTION -->
 <script>
     if (!localStorage.getItem("loggedUser")) {
         window.location.href = "index.html";
@@ -33,21 +33,21 @@
 
 <!-- MAIN CONTENT -->
 <div class="container">
-    <h2 id="welcomeText">Welcome back 👋</h2>
+    <h2 id="welcomeText">Welcome back </h2>
 
-    <!-- 🔔 SMART ALERT -->
+    <!-- SMART ALERT -->
     <div class="card" id="alertBox" style="display:none;">
-        <h3>🔔 Smart Alert</h3>
+        <h3> Smart Alert</h3>
         <p id="alertMessage"></p>
     </div>
 
-    <!-- 💡 AI TIP -->
+    <!-- AI TIP -->
     <div class="card">
-        <h3>💡 AI Tip of the Day</h3>
+        <h3> AI Tip of the Day</h3>
         <p id="aiTip">Loading tip...</p>
     </div>
 
-    <!-- 📊 MONTHLY COMPARISON -->
+    <!-- MONTHLY COMPARISON -->
     <div class="card">
         <h3>📊 Monthly Expense Comparison</h3>
         <p>This Month: ₹<span id="thisMonthExpense">0</span></p>
@@ -55,19 +55,19 @@
         <strong id="monthComparisonText"></strong>
     </div>
 
-    <!-- 💰 TOTAL EXPENSE -->
+    <!-- TOTAL EXPENSE -->
     <div class="card">
         <h3>Total Monthly Expense</h3>
         <p id="totalExpense">₹ 0</p>
     </div>
 
-    <!-- 🤖 AI STATUS -->
+    <!-- AI STATUS -->
     <div class="card">
         <h3>AI Budget Status</h3>
         <p id="aiStatus">Checking...</p>
     </div>
 
-    <!-- ❤️ HEALTH METER -->
+    <!-- HEALTH METER -->
     <div class="card">
         <h3>Expense Health Meter</h3>
         <div class="health-bar">
@@ -76,7 +76,7 @@
         <p id="healthText">Calculating...</p>
     </div>
 
-    <!-- ⚠️ CATEGORY WARNINGS -->
+    <!-- CATEGORY WARNINGS -->
     <div class="card">
         <h3>AI Category Warnings</h3>
         <ul id="categoryWarnings">
@@ -84,7 +84,7 @@
         </ul>
     </div>
 
-    <!-- 📈 ANALYTICS CHART -->
+    <!-- ANALYTICS CHART -->
     <div class="card">
         <h3>Expense Analytics (Category-wise)</h3>
         <canvas id="expenseChart" height="200">
@@ -109,9 +109,10 @@
     const user = JSON.parse(localStorage.getItem("loggedUser"));
     if (user && user.name) {
         document.getElementById("welcomeText").innerText =
-            `Welcome back, ${user.name} 👋`;
+            `Welcome back, ${user.name} `;
     }
 </script>
 
 </body>
 </html>
+
