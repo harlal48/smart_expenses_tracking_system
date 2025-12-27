@@ -23,11 +23,11 @@ function addExpense() {
     }
 
     expenses.push({
-        id: Date.now(),              // ✅ unique ID
+        id: Date.now(),
         title,
-        amount,                      // ✅ number
+        amount,  
         category,
-        date: new Date().toISOString() // ✅ for monthly comparison
+        date: new Date().toISOString() 
     });
 
     localStorage.setItem(expensesKey, JSON.stringify(expenses));
@@ -117,3 +117,4 @@ function exportCSV() {
     link.click();
     document.body.removeChild(link);
 }
+
