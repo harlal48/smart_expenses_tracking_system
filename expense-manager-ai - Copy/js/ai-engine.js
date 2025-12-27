@@ -1,6 +1,6 @@
 function generateBudget() {
 
-    // ✅ CONSISTENT SESSION HANDLING
+    // CONSISTENT SESSION HANDLING
     const user = JSON.parse(localStorage.getItem("loggedUser"));
     if (!user || !user.email) {
         alert("Session expired. Please login again.");
@@ -8,7 +8,7 @@ function generateBudget() {
         return false;
     }
 
-    // ✅ SAFE NUMBER PARSING
+    // SAFE NUMBER PARSING
     const salary = Number(document.getElementById("salary").value);
     const rent = Number(document.getElementById("rent").value) || 0;
     const travel = Number(document.getElementById("travel").value) || 0;
@@ -37,12 +37,12 @@ function generateBudget() {
         message = "Expenses exceed salary. Reduce fixed costs.";
         statusIcon = "🔴";
     } else {
-        // ✅ SAFE DISTRIBUTION
+        // SAFE DISTRIBUTION
         savings = remaining * 0.5;
         food = remaining * 0.5;
 
         if (savingGoal && savings >= savingGoal) {
-            message = "Saving goal achievable 🎯";
+            message = "Saving goal achievable ";
             statusIcon = "🟢";
         } else if (savings >= salary * 0.2) {
             message = "Healthy savings plan";
@@ -53,9 +53,9 @@ function generateBudget() {
         }
     }
 
-    // ✅ UI UPDATE
+    // UI UPDATE
     document.getElementById("result").innerHTML = `
-        <h3>📊 AI Budget Summary</h3>
+        <h3> AI Budget Summary</h3>
         <ul>
             <li>🏠 Rent: ₹${rent}</li>
             <li>🚕 Travel: ₹${travel}</li>
@@ -67,7 +67,7 @@ function generateBudget() {
         <strong>${statusIcon} ${message}</strong>
     `;
 
-    // ✅ SAVE USER-WISE AI BUDGET (CORRECT KEY)
+    // SAVE USER-WISE AI BUDGET (CORRECT KEY)
     const aiBudget = {
         salary,
         rent,
@@ -87,3 +87,4 @@ function generateBudget() {
 
     return false; // prevent page reload
 }
+
