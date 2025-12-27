@@ -11,7 +11,7 @@
 
 <body>
 
-<!-- 🔒 AUTH PROTECTION -->
+<!-- AUTH PROTECTION -->
 <script>
     if (!localStorage.getItem("loggedUser")) {
         window.location.href = "index.html";
@@ -32,7 +32,7 @@
 
 <div class="container">
 
-    <!-- ➕ ADD EXPENSE -->
+    <!-- ADD EXPENSE -->
     <div class="card">
         <h2>Add Expense</h2>
 
@@ -52,11 +52,11 @@
         </form>
     </div>
 
-    <!-- 📋 EXPENSE LIST -->
+    <!-- EXPENSE LIST -->
     <div class="card">
         <h2>Expense List</h2>
 
-        <button onclick="exportCSV()">⬇️ Export to CSV</button>
+        <button onclick="exportCSV()"> Export to CSV</button>
 
         <table>
             <thead>
@@ -88,3 +88,4 @@
 
 </body>
 </html>
+
