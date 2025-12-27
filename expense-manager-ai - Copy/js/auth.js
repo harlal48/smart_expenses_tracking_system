@@ -135,7 +135,7 @@ function deleteAccount() {
     users.splice(index, 1);
     saveUsers(users);
 
-    // 🔥 REMOVE ALL USER DATA
+    // REMOVE ALL USER DATA
     localStorage.removeItem(`expenses_${user.email}`);
     localStorage.removeItem(`aiBudget_${user.email}`);
     localStorage.removeItem(`dailyTip_${user.email}`);
@@ -161,3 +161,4 @@ function resetUserData() {
     alert("All financial data has been reset.");
     window.location.href = "dashboard.html";
 }
+
